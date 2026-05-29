@@ -22,6 +22,8 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CallbackForm } from '@/components/callback-form';
+import { WhatsAppFab } from '@/components/whatsapp-fab';
+import { buildBookingInquiryWhatsAppUrl } from '@/lib/contact-config';
 
 const navItems = [
   { label: 'How it works', href: '#how-it-works' },
@@ -210,23 +212,23 @@ export default function Home() {
           sizes="100vw"
           className="object-cover object-[62%_center]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(19,24,31,0.72)_0%,rgba(19,24,31,0.38)_42%,rgba(19,24,31,0.86)_100%)] lg:bg-[linear-gradient(90deg,rgba(19,24,31,0.92)_0%,rgba(19,24,31,0.68)_42%,rgba(19,24,31,0.18)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(19,24,31,0.92)_0%,rgba(19,24,31,0.68)_42%,rgba(19,24,31,0.18)_100%)]" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-10 sm:px-6 sm:pb-14 sm:pt-16 lg:px-8 lg:pt-20">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex max-w-full flex-wrap items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 text-[11px] font-bold uppercase leading-snug tracking-wide text-white backdrop-blur sm:text-xs">
-              <BadgeCheck className="size-4 shrink-0 text-[#FF8A00]" />
+            <div className="mb-4 inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
+              <BadgeCheck className="size-4 text-[#FF8A00]" />
               Daily Express Service All Over India
             </div>
-            <h1 className="text-3xl font-black leading-tight text-balance sm:text-5xl sm:leading-[1.02] lg:text-7xl">
+            <h1 className="max-w-[12ch] text-4xl font-black leading-[1.02] text-balance sm:text-5xl lg:text-7xl">
               Book Trucks Online, Fast.
             </h1>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-white/82 sm:text-base sm:leading-7 lg:text-lg">
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/82 sm:text-lg">
               Fleet Owners, Transport Contractor & Commission Agent for Full Load and Part Load services. Move goods securely across India.
             </p>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="h-12 w-full text-base font-bold shadow-xl shadow-primary/30 sm:w-auto bg-[#FF8A00] hover:bg-[#e67900] text-white border-none">
+            <div className="mt-7 flex flex-row flex-wrap gap-3">
+              <Button asChild size="lg" className="h-12 text-base font-bold shadow-xl shadow-primary/30 bg-[#FF8A00] hover:bg-[#e67900] text-white border-none">
                 <a href="#quote">
                   Get Instant Quote
                   <ArrowRight className="size-5" />
@@ -236,20 +238,29 @@ export default function Home() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-12 w-full border-white/40 bg-white/10 text-base font-bold text-white hover:bg-white hover:text-secondary sm:w-auto"
+                className="h-12 border-white/40 bg-white/10 text-base font-bold text-white hover:bg-white hover:text-secondary"
               >
                 <a href="tel:9029294037">
                   <Phone className="size-5" />
                   Call Support
                 </a>
               </Button>
+              <Button
+                asChild
+                size="lg"
+                className="h-12 border-none bg-[#25D366] text-base font-bold text-white hover:bg-[#1da851]"
+              >
+                <a href={buildBookingInquiryWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+                  WhatsApp Booking
+                </a>
+              </Button>
             </div>
 
-            <div className="mt-12 grid w-full max-w-xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+            <div className="mt-12 grid max-w-xl grid-cols-4 gap-4">
               {stats.map((stat) => (
-                <div key={stat.label} className="min-w-0 rounded-lg border border-white/15 bg-white/10 p-3 backdrop-blur-md sm:p-4">
-                  <div className="text-2xl font-black text-[#FF8A00] sm:text-3xl">{stat.value}</div>
-                  <div className="mt-1 text-[10px] font-semibold uppercase leading-tight tracking-wide text-white/70 sm:text-xs sm:tracking-wider">{stat.label}</div>
+                <div key={stat.label} className="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur-md">
+                  <div className="text-3xl font-black text-[#FF8A00]">{stat.value}</div>
+                  <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-white/70">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -263,8 +274,8 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-16">
             <p className="mb-3 text-sm font-black uppercase tracking-[0.16em] text-[#FF8A00]">Simple booking</p>
-            <h2 className="text-4xl font-black leading-tight text-white sm:text-5xl">Move cargo in three clear steps</h2>
-            <p className="mt-4 text-base leading-7 text-white/60 sm:text-lg">Designed for busy owners, dispatch teams, and mobile-first users who need answers quickly.</p>
+            <h2 className="text-4xl font-black leading-tight text-white lg:text-5xl">Move cargo in three clear steps</h2>
+            <p className="mt-4 text-base leading-7 text-white/60 lg:text-lg">Designed for busy owners, dispatch teams, and mobile-first users who need answers quickly.</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -351,8 +362,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
             <p className="mb-3 text-sm font-black uppercase tracking-[0.16em] text-[#FF8A00]">Customer trust</p>
-            <h2 className="text-4xl font-black leading-tight text-foreground sm:text-5xl">Used by growing businesses</h2>
-            <p className="mt-4 text-base leading-7 text-muted-foreground sm:text-lg">Clear prices, dependable communication, and trucks that show up.</p>
+            <h2 className="text-4xl font-black leading-tight text-foreground lg:text-5xl">Used by growing businesses</h2>
+            <p className="mt-4 text-base leading-7 text-muted-foreground lg:text-lg">Clear prices, dependable communication, and trucks that show up.</p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -443,6 +454,14 @@ export default function Home() {
                 <Phone className="size-4" />
                 9029294037 / 9833407537
               </a>
+              <a
+                href={buildBookingInquiryWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 font-semibold text-[#25D366] transition hover:text-[#1da851]"
+              >
+                WhatsApp booking: 9833824937
+              </a>
               <a href="mailto:shubhamtransport37@gmail.com" className="flex items-center gap-2 transition hover:text-white">
                 <Mail className="size-4" />
                 shubhamtransport37@gmail.com
@@ -464,14 +483,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 shadow-2xl backdrop-blur md:hidden">
-        <Button asChild className="h-12 w-full text-base font-bold">
-          <a href="#quote">
-            Get Instant Quote
-            <ArrowRight className="size-5" />
-          </a>
-        </Button>
-      </div>
+      <WhatsAppFab />
     </main>
   );
 }

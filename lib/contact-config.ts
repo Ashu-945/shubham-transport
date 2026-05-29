@@ -4,7 +4,23 @@ export const OWNER_EMAIL =
 
 /** WhatsApp number with country code, no + or spaces (India: 91…) */
 export const OWNER_WHATSAPP =
-  process.env.NEXT_PUBLIC_OWNER_WHATSAPP ?? '919029294037';
+  process.env.NEXT_PUBLIC_OWNER_WHATSAPP ?? '919833824937';
+
+export const BOOKING_INQUIRY_MESSAGE = `Hello Shubham Transport,
+
+I would like to book a truck / get a transport quote.
+
+• From city:
+• To city:
+• Load details (weight / goods type):
+• Preferred date:
+
+Please share availability and rates. Thank you!`;
+
+export function buildBookingInquiryWhatsAppUrl(): string {
+  const phone = OWNER_WHATSAPP.replace(/\D/g, '');
+  return `https://wa.me/${phone}?text=${encodeURIComponent(BOOKING_INQUIRY_MESSAGE)}`;
+}
 
 export type CallbackRequest = {
   name: string;
