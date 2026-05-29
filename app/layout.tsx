@@ -30,7 +30,9 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  width: 1280,
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -39,8 +41,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background scroll-smooth">
-      <body className="font-sans antialiased">
+    <html lang="en" className="scroll-smooth bg-background">
+      <body className="w-full overflow-x-hidden font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

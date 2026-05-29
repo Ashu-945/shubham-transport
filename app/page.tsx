@@ -214,14 +214,14 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-10 sm:px-6 sm:pb-14 sm:pt-16 lg:px-8 lg:pt-20">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
-              <BadgeCheck className="size-4 text-[#FF8A00]" />
+            <div className="mb-4 inline-flex max-w-full flex-wrap items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 text-[11px] font-bold uppercase leading-snug tracking-wide text-white backdrop-blur sm:text-xs">
+              <BadgeCheck className="size-4 shrink-0 text-[#FF8A00]" />
               Daily Express Service All Over India
             </div>
-            <h1 className="max-w-[12ch] text-4xl font-black leading-[1.02] text-balance sm:text-5xl lg:text-7xl">
+            <h1 className="text-3xl font-black leading-tight text-balance sm:text-5xl sm:leading-[1.02] lg:text-7xl">
               Book Trucks Online, Fast.
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-white/82 sm:text-lg">
+            <p className="mt-5 max-w-xl text-sm leading-7 text-white/82 sm:text-base sm:leading-7 lg:text-lg">
               Fleet Owners, Transport Contractor & Commission Agent for Full Load and Part Load services. Move goods securely across India.
             </p>
 
@@ -245,11 +245,11 @@ export default function Home() {
               </Button>
             </div>
 
-            <div className="mt-12 grid max-w-xl grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="mt-12 grid w-full max-w-xl grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
               {stats.map((stat) => (
-                <div key={stat.label} className="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur-md">
-                  <div className="text-3xl font-black text-[#FF8A00]">{stat.value}</div>
-                  <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-white/70">{stat.label}</div>
+                <div key={stat.label} className="min-w-0 rounded-lg border border-white/15 bg-white/10 p-3 backdrop-blur-md sm:p-4">
+                  <div className="text-2xl font-black text-[#FF8A00] sm:text-3xl">{stat.value}</div>
+                  <div className="mt-1 text-[10px] font-semibold uppercase leading-tight tracking-wide text-white/70 sm:text-xs sm:tracking-wider">{stat.label}</div>
                 </div>
               ))}
             </div>
